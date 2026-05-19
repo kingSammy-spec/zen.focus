@@ -2,7 +2,7 @@
     --bg: #fcfcfc;
     --text: #2d3436;
     --accent: #a29bfe;
-    --muted: #b2bec3;
+    --muted: #636e72;
     --card: #ffffff;
     --shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
@@ -11,7 +11,7 @@ body.dark-mode {
     --bg: #121212;
     --text: #f5f6fa;
     --accent: #00ffcc;
-    --muted: #718093;
+    --muted: #a4b0be;
     --card: #1e1e1e;
     --shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
@@ -73,7 +73,7 @@ nav a.active { color: var(--text); }
 /* Timer */
 .timer-section { margin-bottom: 6rem; }
 .timer-display h1 { font-size: clamp(2.8rem, 12vw, 8rem); font-weight: 300; letter-spacing: -3px; line-height: 1; }
-.timer-display p { font-size: 0.7rem; font-weight: 700; letter-spacing: 3px; color: var(--muted); margin-top: 1rem; }
+.timer-display p { font-size: 0.85rem; font-weight: 700; letter-spacing: 3px; color: var(--muted); margin-top: 1rem; }
 
 .timer-controls { margin-top: 3rem; display: flex; justify-content: center; gap: 2rem; }
 .timer-controls button {
@@ -189,7 +189,7 @@ nav a.active { color: var(--text); }
 .time-input-group input::-webkit-outer-spin-button { -webkit-appearance: none; }
 
 .time-input-group label {
-    font-size: 0.65rem;
+    font-size: 0.85rem;
     color: var(--muted);
     font-weight: 700;
     letter-spacing: 1px;
@@ -243,7 +243,7 @@ nav a.active { color: var(--text); }
 }
 
 .sound-card .icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
-.sound-card span { font-size: 0.7rem; font-weight: 700; display: block; color: var(--muted); }
+.sound-card span { font-size: 0.85rem; font-weight: 700; display: block; color: var(--muted); }
 
 /* Ads */
 .zen-ad-bar {
@@ -773,7 +773,7 @@ body.dark-mode .floating-ad-banner {
 }
 
 .banner-badge {
-    font-size: 0.65rem;
+    font-size: 0.85rem;
     color: var(--accent);
     font-weight: 800;
     letter-spacing: 1.5px;

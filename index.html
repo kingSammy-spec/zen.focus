@@ -41,19 +41,22 @@
     </script>
     <!-- ========================= -->
     <title>Zen Focus | Deep Work & Ambient Sounds</title>
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧘</text></svg>">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧘</text></svg>">
     <link rel="stylesheet" href="style.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="zen-container">
         <header>
             <div class="logo">zen<span>.</span>focus</div>
-            <button class="burger-btn" id="burger-toggle">☰</button>
+            <button class="burger-btn" id="burger-toggle" aria-label="Toggle navigation menu">☰</button>
             <nav id="main-nav">
-                <a href="#" class="active" data-target="view-timer">Timer</a>
-                <a href="#" data-target="view-sounds">Sounds</a>
-                <a href="#" data-target="view-stats">Stats</a>
+                <a href="/" class="active" data-target="view-timer">Timer</a>
+                <a href="/" data-target="view-sounds">Sounds</a>
+                <a href="/" data-target="view-stats">Stats</a>
                 <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
             </nav>
         </header>
@@ -88,25 +91,25 @@
                             <div class="time-inputs">
                                 <div class="time-input-group">
                                     <input type="number" id="custom-hrs" min="0" max="12" value="0" placeholder="HH">
-                                    <label>hr</label>
+                                    <label for="custom-hrs">hr</label>
                                 </div>
                                 <span class="time-colon">:</span>
                                 <div class="time-input-group">
                                     <input type="number" id="custom-mins" min="0" max="59" value="25" placeholder="MM">
-                                    <label>min</label>
+                                    <label for="custom-mins">min</label>
                                 </div>
                                 <span class="time-colon">:</span>
                                 <div class="time-input-group">
                                     <input type="number" id="custom-secs" min="0" max="59" value="00" placeholder="SS">
-                                    <label>sec</label>
+                                    <label for="custom-secs">sec</label>
                                 </div>
                                 <button class="set-time-btn" id="set-time-btn">Set</button>
                             </div>
                         </div>
 
                         <div class="timer-controls">
-                            <button id="start-btn">Start</button>
-                            <button id="reset-btn">Reset</button>
+                            <button id="start-btn" aria-label="Start Timer">Start</button>
+                            <button id="reset-btn" aria-label="Reset Timer">Reset</button>
                         </div>
                     </div>
 
@@ -223,31 +226,31 @@
                 </div>
                 <div class="footer-links">
                     <h4>Product</h4>
-                    <a href="#">Timer</a>
-                    <a href="#">Soundscapes</a>
-                    <a href="#">Analytics</a>
-                    <a href="#">Zen Pro</a>
+                    <a href="/">Timer</a>
+                    <a href="/">Soundscapes</a>
+                    <a href="/">Analytics</a>
+                    <a href="/">Zen Pro</a>
                 </div>
                 <div class="footer-links">
                     <h4>Company</h4>
-                    <a href="#">About Us</a>
-                    <a href="#">Careers</a>
-                    <a href="#">Blog</a>
-                    <a href="#">Contact</a>
+                    <a href="/">About Us</a>
+                    <a href="/">Careers</a>
+                    <a href="/">Blog</a>
+                    <a href="/">Contact</a>
                 </div>
                 <div class="footer-links">
                     <h4>Legal</h4>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Cookie Settings</a>
+                    <a href="/">Privacy Policy</a>
+                    <a href="/">Terms of Service</a>
+                    <a href="/">Cookie Settings</a>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Zen Focus. All rights reserved.</p>
                 <div class="social-icons">
-                    <a href="#">Twitter</a>
-                    <a href="#">Instagram</a>
-                    <a href="#">Discord</a>
+                    <a href="/">Twitter</a>
+                    <a href="/">Instagram</a>
+                    <a href="/">Discord</a>
                 </div>
             </div>
         </footer>
