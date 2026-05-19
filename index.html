@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ===== SEO META TAGS ===== -->
+    <meta name="description" content="Zen Focus is a deep work productivity app with a Pomodoro timer, ambient soundscapes, and focus sessions. Block distractions and enter a state of deep flow.">
+    <meta name="keywords" content="focus timer, Pomodoro timer, ambient sounds, deep work, productivity app, concentration, white noise, study timer">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Zen Focus">
+    <link rel="canonical" href="./">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Zen Focus | Deep Work Timer & Ambient Sounds">
+    <meta property="og:description" content="Zen Focus is a deep work productivity app with a Pomodoro timer, ambient soundscapes, and focus sessions. Block distractions and enter a state of deep flow.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1200&h=630&q=80">
+    <meta property="og:site_name" content="Zen Focus">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Zen Focus | Deep Work Timer & Ambient Sounds">
+    <meta name="twitter:description" content="Zen Focus is a deep work productivity app with a Pomodoro timer, ambient soundscapes, and focus sessions. Block distractions and enter a state of deep flow.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1200&h=630&q=80">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Zen Focus",
+      "description": "Zen Focus is a deep work productivity app with a Pomodoro timer, ambient soundscapes, and focus sessions. Block distractions and enter a state of deep flow.",
+      "applicationCategory": "Utility",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+    <!-- ========================= -->
+    <title>Zen Focus | Deep Work & Ambient Sounds</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧘</text></svg>">
+    <link rel="stylesheet" href="style.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="zen-container">
+        <header>
+            <div class="logo">zen<span>.</span>focus</div>
+            <button class="burger-btn" id="burger-toggle">☰</button>
+            <nav id="main-nav">
+                <a href="#" class="active" data-target="view-timer">Timer</a>
+                <a href="#" data-target="view-sounds">Sounds</a>
+                <a href="#" data-target="view-stats">Stats</a>
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Dark Mode">🌙</button>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Timer View -->
+            <section id="view-timer" class="view-section active-view">
+                <div class="timer-layout-container">
+                    <div class="timer-main-column">
+                        <!-- Live +/- adjustment (shown while running) -->
+                        <div class="live-adjust" id="live-adjust" style="display:none;">
+                            <button class="adj-btn" id="adj-minus" title="Remove 5 min">−5m</button>
+                            <button class="adj-btn" id="adj-plus" title="Add 5 min">+5m</button>
+                        </div>
+
+                        <div class="timer-display">
+                            <h1 id="timer">00:25:00</h1>
+                            <p id="timer-status">TIME TO FOCUS</p>
+                            <div id="bible-verse-display" class="bible-verse-display"></div>
+                        </div>
+
+                        <!-- Custom Time Setter -->
+                        <div class="time-setter" id="time-setter">
+                            <div class="time-presets">
+                                <button class="preset-btn" data-mins="5">5m</button>
+                                <button class="preset-btn" data-mins="15">15m</button>
+                                <button class="preset-btn active" data-mins="25">25m</button>
+                                <button class="preset-btn" data-mins="60">1h</button>
+                                <button class="preset-btn" data-mins="120">2h</button>
+                                <button class="preset-btn" data-mins="480">8h</button>
+                            </div>
+                            <div class="time-inputs">
+                                <div class="time-input-group">
+                                    <input type="number" id="custom-hrs" min="0" max="12" value="0" placeholder="HH">
+                                    <label>hr</label>
+                                </div>
+                                <span class="time-colon">:</span>
+                                <div class="time-input-group">
+                                    <input type="number" id="custom-mins" min="0" max="59" value="25" placeholder="MM">
+                                    <label>min</label>
+                                </div>
+                                <span class="time-colon">:</span>
+                                <div class="time-input-group">
+                                    <input type="number" id="custom-secs" min="0" max="59" value="00" placeholder="SS">
+                                    <label>sec</label>
+                                </div>
+                                <button class="set-time-btn" id="set-time-btn">Set</button>
+                            </div>
+                        </div>
+
+                        <div class="timer-controls">
+                            <button id="start-btn">Start</button>
+                            <button id="reset-btn">Reset</button>
+                        </div>
+                    </div>
+
+                    <div class="timer-side-column">
+                        <div class="quick-play-section">
+                            <p class="quick-play-title">Quick Play:</p>
+                            <div class="sound-grid">
+                                <div class="sound-card" data-sound="rain">
+                                    <div class="icon">🌧️</div>
+                                    <span>Rainfall</span>
+                                </div>
+                                <div class="sound-card" data-sound="forest">
+                                    <div class="icon">🌲</div>
+                                    <span>Forest</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sounds View -->
+            <section id="view-sounds" class="view-section" style="display: none;">
+                <h2 style="font-size: 2rem; margin-bottom: 2rem; text-align: center;">Sound Library</h2>
+                <div class="sound-grid" id="full-sound-grid">
+                    <div class="sound-card" data-sound="rain">
+                        <div class="icon">🌧️</div>
+                        <span>Heavy Rain</span>
+                    </div>
+                    <div class="sound-card" data-sound="forest">
+                        <div class="icon">🌲</div>
+                        <span>Deep Forest</span>
+                    </div>
+                    <div class="sound-card" data-sound="waves">
+                        <div class="icon">🌊</div>
+                        <span>Ocean Waves</span>
+                    </div>
+                    <div class="sound-card" data-sound="fire">
+                        <div class="icon">🔥</div>
+                        <span>Campfire</span>
+                    </div>
+                    <div class="sound-card" data-sound="racetrack">
+                        <div class="icon">🏎️</div>
+                        <span>Cars Racing</span>
+                    </div>
+                    <div class="sound-card" data-sound="cheering">
+                        <div class="icon">🏆</div>
+                        <span>Cheering</span>
+                    </div>
+                    <div class="sound-card" data-sound="thunder">
+                        <div class="icon">⚡</div>
+                        <span>Thunder</span>
+                    </div>
+                    <div class="sound-card" data-sound="children">
+                        <div class="icon">🧒</div>
+                        <span>Children Playing</span>
+                    </div>
+                    <div class="sound-card" data-sound="bible">
+                        <div class="icon">📖</div>
+                        <span>Bible Verse</span>
+                    </div>
+                    <div class="sound-card" data-sound="money">
+                        <div class="icon">💰</div>
+                        <span>Money Counting</span>
+                    </div>
+                    <div class="sound-card locked" style="opacity:0.5;">
+                        <div class="icon">☕</div>
+                        <span>Coffee Shop (Pro)</span>
+                    </div>
+                    <div class="sound-card locked" style="opacity:0.5;">
+                        <div class="icon">🌙</div>
+                        <span>Night Crickets (Pro)</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats View -->
+            <section id="view-stats" class="view-section" style="display: none;">
+                <h2 class="view-title">Focus Insights</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="total-focus-time">0h 0m</div>
+                        <p class="stat-label">Total Focus Time</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="sessions-completed">0</div>
+                        <p class="stat-label">Sessions Completed</p>
+                    </div>
+                </div>
+
+                <div class="device-recognition-card">
+                    <h3 class="device-title">Device Recognition</h3>
+                    <ul class="device-list">
+                        <li><strong>Current Device:</strong> <span id="stat-device">Analyzing...</span></li>
+                        <li><strong>Screen Resolution:</strong> <span id="stat-screen">Analyzing...</span></li>
+                        <li><strong>Browser:</strong> <span id="stat-browser">Analyzing...</span></li>
+                        <li><strong>Platform:</strong> <span id="stat-platform">Analyzing...</span></li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <div class="zen-premium-pill" id="zen-upgrade">
+            <span class="pulse-dot"></span>
+            <span>Unlock 50+ HD Soundscapes</span>
+            <span class="arrow">→</span>
+        </div>
+
+        <footer class="zen-footer">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>zen<span>.</span>focus</h3>
+                    <p>Your sanctuary for deep work and mindfulness. Mask distractions and boost productivity with science-backed audio.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Product</h4>
+                    <a href="#">Timer</a>
+                    <a href="#">Soundscapes</a>
+                    <a href="#">Analytics</a>
+                    <a href="#">Zen Pro</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Contact</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Settings</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Zen Focus. All rights reserved.</p>
+                <div class="social-icons">
+                    <a href="#">Twitter</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Discord</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- 1. Zen Celebration Completion Modal -->
+    <div id="celebrationModal" class="modal" style="z-index: 12000; background: rgba(0, 0, 0, 0.94); display: none;">
+        <div class="modal-content" style="max-width: 500px; text-align: center; border-color: rgba(250, 255, 0, 0.2); box-shadow: 0 0 30px rgba(250, 255, 0, 0.1);">
+            <div style="font-size: 4rem; animation: pulse 2s infinite; margin-bottom: 1rem;">🧘‍♂️</div>
+            <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 2.2rem; color: var(--primary); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: -0.5px;">Session Complete</h2>
+            <p style="color: var(--text-muted); font-size: 0.85rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem;">PEAK MINDFULNESS ACHIEVED</p>
+            <p style="color: #ccc; font-size: 1rem; line-height: 1.6; margin-bottom: 2rem;">Take a slow, deep breath. You successfully maintained concentration and guarded your focus. Enjoy your break!</p>
+            <button class="btn-primary" id="btn-close-celebration" style="width: 100%; padding: 1rem;">Begin Break</button>
+        </div>
+    </div>
+
+    <!-- 2. Timed Interchanging Popup Ad -->
+    <div id="premiumUpgradeModal" class="modal" style="z-index: 10500; background: rgba(0, 0, 0, 0.95); display: none;">
+        <!-- Injected programmatically by script.js -->
+    </div>
+
+    <!-- 3. Interstitial Strategic Popup Ad -->
+    <div id="interstitialAdModal" class="modal" style="z-index: 11000; background: rgba(0, 0, 0, 0.96); display: none;">
+        <div class="modal-content" style="max-width: 580px; text-align: center; border-color: rgba(250, 255, 0, 0.15); box-shadow: 0 0 30px rgba(250, 255, 0, 0.08); padding: 3.5rem 2.5rem;">
+            <span class="ad-tag" style="font-size: 0.75rem; color: var(--primary); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 2rem; display: inline-block;">SPONSORED PEAK FOCUS</span>
+            
+            <div class="ad-sponsor-container" style="display: flex; gap: 2rem; text-align: left; align-items: center; margin-bottom: 3rem;">
+                <img id="interstitial-ad-img" src="https://picsum.photos/seed/headphones/200/200" alt="Sponsor Headset" style="width: 130px; height: 130px; border-radius: 12px; object-fit: cover; border: 1px solid var(--border); filter: grayscale(0.1) contrast(1.15);">
+                <div>
+                    <h3 id="interstitial-ad-title" style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 1.4rem; text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: -0.5px;">AeroFlow ANC Headset</h3>
+                    <p id="interstitial-ad-desc" style="color: #ccc; font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">Industry-leading active noise cancellation designed to lock you into absolute deep work and meditation.</p>
+                    <div id="interstitial-ad-promo" style="font-size: 0.8rem; font-weight: 800; color: var(--primary); letter-spacing: 0.5px;">USE CODE "ANC20" FOR 20% OFF</div>
+                </div>
+            </div>
+            
+            <div style="display: flex; gap: 1.5rem;">
+                <button class="btn-secondary" id="btn-skip-ad" style="flex: 1; padding: 1rem; opacity: 0.4; cursor: not-allowed;" disabled>
+                    Skip Ad in 5s
+                </button>
+                <button class="btn-primary" id="btn-claim-ad" style="flex: 1; padding: 1rem;">
+                    Claim Offer
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. Floating Rotating Promo Banner -->
+    <div class="floating-ad-banner" id="floating-ad-banner" style="display: none;">
+        <!-- Injected programmatically by script.js -->
+    </div>
+
+    <script src="script.min.js"></script>
+</body>
+</html>
