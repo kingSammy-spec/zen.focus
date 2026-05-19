@@ -47,6 +47,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;700&display=swap" rel="stylesheet">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7322019754286753" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="zen-container">
@@ -68,8 +69,8 @@
                     <div class="timer-main-column">
                         <!-- Live +/- adjustment (shown while running) -->
                         <div class="live-adjust" id="live-adjust" style="display:none;">
-                            <button class="adj-btn" id="adj-minus" title="Remove 5 min">−5m</button>
-                            <button class="adj-btn" id="adj-plus" title="Add 5 min">+5m</button>
+                            <button class="adj-btn" id="adj-minus" title="Remove 5 min" aria-label="Adj Minus">−5m</button>
+                            <button class="adj-btn" id="adj-plus" title="Add 5 min" aria-label="Adj Plus">+5m</button>
                         </div>
 
                         <div class="timer-display">
@@ -81,12 +82,12 @@
                         <!-- Custom Time Setter -->
                         <div class="time-setter" id="time-setter">
                             <div class="time-presets">
-                                <button class="preset-btn" data-mins="5">5m</button>
-                                <button class="preset-btn" data-mins="15">15m</button>
-                                <button class="preset-btn active" data-mins="25">25m</button>
-                                <button class="preset-btn" data-mins="60">1h</button>
-                                <button class="preset-btn" data-mins="120">2h</button>
-                                <button class="preset-btn" data-mins="480">8h</button>
+                                <button class="preset-btn" data-mins="5" aria-label="Button">5m</button>
+                                <button class="preset-btn" data-mins="15" aria-label="Button">15m</button>
+                                <button class="preset-btn active" data-mins="25" aria-label="Button">25m</button>
+                                <button class="preset-btn" data-mins="60" aria-label="Button">1h</button>
+                                <button class="preset-btn" data-mins="120" aria-label="Button">2h</button>
+                                <button class="preset-btn" data-mins="480" aria-label="Button">8h</button>
                             </div>
                             <div class="time-inputs">
                                 <div class="time-input-group">
@@ -103,7 +104,7 @@
                                     <input type="number" id="custom-secs" min="0" max="59" value="00" placeholder="SS">
                                     <label for="custom-secs">sec</label>
                                 </div>
-                                <button class="set-time-btn" id="set-time-btn">Set</button>
+                                <button class="set-time-btn" id="set-time-btn" aria-label="Set Time Btn">Set</button>
                             </div>
                         </div>
 
@@ -262,7 +263,7 @@
             <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: 2.2rem; color: var(--primary); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: -0.5px;">Session Complete</h2>
             <p style="color: var(--text-muted); font-size: 0.85rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem;">PEAK MINDFULNESS ACHIEVED</p>
             <p style="color: #ccc; font-size: 1rem; line-height: 1.6; margin-bottom: 2rem;">Take a slow, deep breath. You successfully maintained concentration and guarded your focus. Enjoy your break!</p>
-            <button class="btn-primary" id="btn-close-celebration" style="width: 100%; padding: 1rem;">Begin Break</button>
+            <button class="btn-primary" id="btn-close-celebration" style="width: 100%; padding: 1rem;" aria-label="Btn Close Celebration">Begin Break</button>
         </div>
     </div>
 
@@ -286,10 +287,10 @@
             </div>
             
             <div style="display: flex; gap: 1.5rem;">
-                <button class="btn-secondary" id="btn-skip-ad" style="flex: 1; padding: 1rem; opacity: 0.4; cursor: not-allowed;" disabled>
+                <button class="btn-secondary" id="btn-skip-ad" style="flex: 1; padding: 1rem; opacity: 0.4; cursor: not-allowed;" disabled aria-label="Btn Skip Ad">
                     Skip Ad in 5s
                 </button>
-                <button class="btn-primary" id="btn-claim-ad" style="flex: 1; padding: 1rem;">
+                <button class="btn-primary" id="btn-claim-ad" style="flex: 1; padding: 1rem;" aria-label="Btn Claim Ad">
                     Claim Offer
                 </button>
             </div>
